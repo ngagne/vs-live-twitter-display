@@ -9,6 +9,22 @@ View the demo here: https://ngagne.github.io/vs-live-twitter-display/
 ```js
 var app = $('#main').App();
 ```
+
+### Optional constructor parameters:
+```js
+var app = $('#main').App({
+        activeTweetDuration: 5000, // time (ms) to display active tweet
+       passiveTweetDuration: 5000, // time (ms) between each spawned tweet
+         passiveTweetBounds: 63, // horizontal bounds (vw) to spawn tweets (100 - [tweet's % width of screen])
+               clippyBounds: 98, // horizontal bounds (vw) to spawn Clippy character (100 - [clippy's % width of screen])
+             clippyDuration: 21000, // time (ms) between each spawned Clippy character
+    backgroundImageDuration: 30000, // time (ms) between each background image
+               enableClippy: true, // enable/disable the Clippy character
+                  maxTweets: 15, // total tweets to keep in memory
+           maxLimitedTweets: 5 // total limited tweets to keep in memory
+});
+```
+
 ### Add a tweet: 
 ```js
 app.addTweet({
