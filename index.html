@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Visual Studio Live! Twitter Display</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+    <div id="activeTweets"></div>
+    <div id="background">
+        <div id="passiveTweets"></div>
+        <div id="backgroundImages">
+            <div data-image="img/background01.jpg"></div>
+            <div data-image="img/background02.jpg"></div>
+            <div data-image="img/background03.jpg"></div>
+            <div data-image="img/background04.jpg"></div>
+        </div>
+    </div>
+
+    <script id="templateTweet" type="text/x-handlebars-template">
+        <div class="tweet">
+            <div class="inner">
+                <img class="profile-image" src="{{image}}" />
+                <div class="right">
+                    <span class="profile-fullname">{{fullname}}</span>
+                    <span class="profile-username">{{username}}</span>
+                    <span class="time">&bullet; {{time}}</span>
+                    <span class="message">{{message}}</span>
+                    {{tweet_image}}
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script id="templateTweetImage" type="text/x-handlebars-template">
+        <img class="tweet-image" src="{{image}}" />
+    </script>
+
+    <script id="templateClippy" type="text/x-handlebars-template">
+        <div class="clippy"><img src="img/clippy.png" /></div>
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+		// initialize the app
+        var app = $('#main').App();
+
+		// let's add some sample tweets (you would make these calls as new tweets arrive)
+        app.addTweet({
+            profileImage: 'img/twitter-nintendo.jpg',
+            fullname: 'Nintendo of America',
+            username: '@NintendoAmerica',
+            time: 'Nov 29',
+            message: 'Miis are you...and whatever else you want them to be. Miitomo by @NintendoAmerica is revamping social networking. http://apple.co/Miitomo ',
+            isNew: true,
+            image: 'https://pbs.twimg.com/media/CyemFu2WQAAOvWi.jpg',
+        });
+        app.addTweet({
+            profileImage: 'img/twitter-zurb-foundation.jpg',
+            fullname: 'ZURB Foundation',
+            username: '@ZURBfoundation',
+            time: 'Jun 6',
+            message: 'Exploring responsive design navigation patterns - http://zurb.us/1TRTPrk',
+            isNew: true,
+            image: 'https://pbs.twimg.com/media/CkSFwohUgAA9Bv8.jpg'
+        });
+        app.addTweet({
+            profileImage: 'img/twitter-zurb-foundation.jpg',
+            fullname: 'ZURB Foundation',
+            username: '@ZURBfoundation',
+            time: 'Apr 9',
+            message: 'Not a featured tweet here. Just a placeholder.'
+        });
+        app.addTweet({
+            profileImage: 'img/twitter-nintendo.jpg',
+            fullname: 'Nintendo of America',
+            username: '@NintendoAmerica',
+            time: 'Jun 8',
+            message: 'Nintendo Treehouse: Live is less than one week away! Tune in 6/14 at 9 a.m. PT. http://e3.nintendo.com ',
+            isNew: true,
+            image: 'https://pbs.twimg.com/media/Ckce_kVXIAAxpgI.jpg',
+        });
+        app.addTweet({
+            profileImage: 'img/twitter-zurb-foundation.jpg',
+            fullname: 'ZURB Foundation',
+            username: '@ZURBfoundation',
+            time: 'May 25',
+            message: '17 is just a sample tweet with no image.',
+            isLimited: true
+        });
+        app.addTweet({
+            profileImage: 'img/twitter-zurb-foundation.jpg',
+            fullname: 'ZURB Foundation',
+            username: '@ZURBfoundation',
+            time: 'Jul 25',
+            message: 'Using the Foundation 6 #flexbox grid - http://zurb.us/1myk5gv ',
+            image: 'https://pbs.twimg.com/media/CkSBc9QUUAAdN2x.jpg'
+        });
+    </script>
+</body>
+</html>

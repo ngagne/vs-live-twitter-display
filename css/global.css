@@ -1,0 +1,180 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    background:#000;
+	overflow:hidden;
+}
+#background{
+    transition: -webkit-filter .5s;
+}
+#background,
+#backgroundImages{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background:#000;
+    will-change: -webkit-filter;
+}
+.blur #background{
+    -webkit-filter:blur(2px) brightness(70%);
+}
+#backgroundImages div{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    background-size:cover;
+    display: none;
+    transition: opacity 5s;
+    will-change: opacity;
+}
+#backgroundImages div.active{
+    display: block;
+}
+#backgroundImages div.out{
+    opacity: 0;
+    z-index: 2;
+}
+#backgroundImages div:after {
+    background-image: linear-gradient(135deg, #7B1FA2, #4CAF50);
+    opacity: 0.7;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tweet{
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: 150;
+    border-radius: .5em;
+    background:#fff;
+    box-shadow:0 3px 5px 2px rgba(0,0,0,0.16);
+    width:40vw;
+    font-size:1.5vw;
+}
+.tweet .right img{
+    max-height:10em;
+    max-width:100%;
+    width:auto;
+    margin:1em auto 0;
+    display:block;
+}
+#activeTweets .tweet{
+    box-shadow:0 10px 5px 0 rgba(0,0,0,0.16);
+    width:60vw;
+    font-size:2.5vw;
+    left:20vw;
+    transform: translateY(150vh);
+    transition:transform 1s cubic-bezier(.87,-.41,.19,1.44);
+    z-index: 1000;
+    will-change: transform;
+}
+#activeTweets .tweet.in{
+    transform:translateY(50vh);
+}
+#activeTweets .tweet.out{
+    transform:translateY(-50vh);
+}
+#passiveTweets .tweet{
+    transition: transform 20s linear;
+    transform:translate3d(0, -40vh, 0) perspective(1px) scale(1.1);
+    will-change: transform;
+}
+#passiveTweets .tweet.level1{
+    width:37vw;
+    font-size:1.4vw;
+    z-index: 140;
+    transition-duration: 23s;
+    box-shadow:0 3px 4px 1px rgba(0,0,0,0.16);
+}
+#passiveTweets .tweet.level2{
+    width:33vw;
+    font-size:1.3vw;
+    z-index: 130;
+    transition-duration: 26s;
+    box-shadow:0 3px 3px 1px rgba(0,0,0,0.16);
+}
+#passiveTweets .tweet.level3{
+    width:30vw;
+    font-size:1.2vw;
+    z-index: 120;
+    transition-duration: 30s;
+    box-shadow:0 3px 2px 0 rgba(0,0,0,0.16);
+}
+#passiveTweets .tweet.in{
+    transform:translateY(110vh);
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+#passiveTweets .clippy{
+    position:absolute;
+    left:0;
+    top:0;
+    transition: transform 10s linear;
+    transform:translate3d(0, -3vw, 0) perspective(1px) scale(1.1);
+    z-index:50;
+    will-change: transform;
+}
+#passiveTweets .clippy img{
+    width:2vw;
+    display:block;
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    will-change: transform;
+}
+#passiveTweets .clippy.in{
+    transform:translateY(103vh);
+}
+.tweet .inner{
+    padding:1em;
+}
+.tweet .inner:after {
+    clear: both;
+    content: " ";
+    display: table;
+}
+.profile-image{
+    float: left;
+    width: 10%;
+    margin-right: 5%;
+    border-radius: .25em;
+}
+.right{
+    width: 85%;
+    float:right;
+}
+.profile-fullname{
+    font-size:.75em;
+    font-weight:bold;
+}
+.profile-username {
+    color:#999;
+    font-size:.75em;
+}
+.time{
+    color:#999;
+    font-size:.75em;
+}
+.message{
+    display: block;
+}
+.message a{
+    color:#1DA1F2;
+}
+.tweet-image{
+    margin-top:1em;
+    width:100%;
+}
