@@ -7,7 +7,7 @@ View the demo here: https://ngagne.github.io/vs-live-twitter-display/
 ## Usage
 ### Initialize the JavaScript application: 
 ```js
-var app = $('#main').App();`
+var app = $('#main').App();
 ```
 ### Add a tweet: 
 ```js
